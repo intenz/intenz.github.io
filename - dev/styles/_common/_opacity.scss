@@ -1,0 +1,49 @@
+.opacity__wrapper {
+  display: block;
+  position: relative;
+  background: #f1f1f1;
+  font-size: 14px;
+  text-align: left;
+  padding: 0 11px;
+
+}
+
+.info__text-opacity {
+  margin-bottom: 26px;
+  padding: 0 9px;
+}
+
+.opacity__slider {
+
+}
+
+.opacity__button {
+  @include clearfix;
+}
+
+.opacity__button-input {
+  height: 42px;
+  width: 99px;
+  border-radius: 3px;
+  border: none;
+  color: #f1f1f1;
+  font-weight: 500;
+  font-size: 18px;
+  opacity: 0.6;
+
+  &:hover{
+    opacity: 1;
+  }
+}
+
+.opacity__button-input-res {
+  background: #c1cfd9;
+  float: left;
+}
+
+.opacity__button-input-load {
+  background: #f97e76;
+  float: right;
+  outline: none;
+}
+
