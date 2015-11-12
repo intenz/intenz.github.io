@@ -14,49 +14,58 @@
 				</ul>
 				<div class="sidebar-social">
 					<ul class="sidebar-social__list">
-						<li class="social-item"><a data-type="fb" href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:3000/" target="_blank" class="social__icons-link fb">Facebook</a></li>
-						<li class="social-item"><a data-type="tw" href="https://twitter.com/intent/tweet?text=Hello%20world!%20http://127.0.0.1:3000/" target="_blank" class="social__icons-link tw">Twitter</a></li>
-						<li class="social-item"><a data-type="vk" href="http://vk.com/share.php?url=http://127.0.0.1:3000/" target="_blank" class="social__icons-link vk">Vk</a></li>
+						<li class="social-item"><a target="_blank" data-type="fb" href="https://facebook.com/sharer/sharer.php?u=http://127.0.0.1:3000/" class="social__icons-link fb"></a></li>
+						<li class="social-item"><a target="_blank" data-type="tw" href="https://twitter.com/intent/tweet?text=Hello%20world!%20http://127.0.0.1:3000/" class="social__icons-link tw"></a></li>
+						<li class="social-item"><a target="_blank" data-type="vk" href="https://vk.com/share.php?url=http://127.0.0.1:3000/" class="social__icons-link vk"></a></li>
 					</ul>
 					<div class="sidebar-social__like"></div>
 				</div>
 			</aside>
 			<div class="container">
 				<section class="section-page">
-					<h1 class="section__title">Генератор водяных знаков</h1>
+					<h1 class="section__title lang-ru">Генератор водяных знаков</h1>
+					<h1 class="section__title lang-en">Watermarks generator</h1>
 					<div class="container__img">
 						<div class="img__wrapp">
-							<div class="img__main"><img src="img/main-img_03.jpg" class="img__main-uploaded"></div><img src="img/watermark_03.png" class="img__watermark-uploaded">
+							<div class="img__main"><img src="img/main-img_03.jpg" class="img__main-uploaded"><img src="img/watermark_03.png" id="draggable" class="ui-widget-content img__watermark-uploaded"></div>
 						</div>
 					</div>
 				</section>
 				<aside class="aside-page">
-					<h2 class="aside__title">Настройки</h2>
+					<h2 class="aside__title lang-ru">Настройки</h2>
+					<h2 class="aside__title lang-en">Settings</h2>
 					<div class="formwrapper devider">
 						<form id="add-new-project" role="form" class="form">
 							<div class="form__group">
 								<div class="form__group-wrapper">
-									<div class="info__text">Исходное изображение</div>
+									<div class="info__text lang-ru">Исходное изображение</div>
+									<div class="info__text lang-en">Original image</div>
 									<label class="label__fileupload">
-										<input id="fileupload" type="file" name="files[]" class="fileupload">
+										<input id="fileuploadFirst" type="file" name="files[]" data-url="server/php/" class="fileupload">
 										<input id="fileurl" type="hidden" class="fileurl">
 									</label>
-									<input id="filename" name="filename" placeholder="Image.jpg" class="input">
+									<input id="filenameFirst" name="filename" placeholder="Image.jpg" class="input">
 								</div>
 								<div class="form__group-wrapper">
-									<div class="info__text">Водяной знак</div>
+									<div class="info__text lang-ru">Водяной знак</div>
+									<div class="info__text lang-en">Watermark</div>
 									<label class="label__fileupload">
-										<input id="fileupload" type="file" name="files[]" class="fileupload">
+										<input id="fileuploadSecond" type="file" name="files[]" data-url="server/php/" disabled class="fileupload">
 										<input id="fileurl" type="hidden" class="fileurl">
 									</label>
-									<input id="filename" name="filename" placeholder="Image.jpg" class="input">
+									<input id="filenameSecond" name="filename" placeholder="Image.jpg" class="input">
 								</div>
 							</div>
 						</form>
 					</div>
 					<div class="aside__positioning_wrap devider">
 						<div class="aside__positioning">
-							<h3 class="info__text">Положение</h3>
+							<h3 class="info__text lang-ru">Положение</h3>
+							<h3 class="info__text lang-en">Place</h3>
+							<ul class="position__form-list">
+								<li class="positio__form-item"><a class="postion__form-link postion__form-tileoff"></a></li>
+								<li class="positio__form-item"><a class="postion__form-link postion__form-oneoff"></a></li>
+							</ul>
 							<div class="positioning_container">
 								<table class="positioning__table">
 									<tr class="table__row">
@@ -80,27 +89,29 @@
 										<label class="controls__label">X
 											<input type="text" data-inputPosition="X" id="input-X" class="controls__input">
 										</label>
-										<div class="controls__arrow_container"><a href="" class="controls__arrow controls__arrow-more">more</a><a href="" class="controls__arrow controls__arrow-less">less</a>
-										</div>
 									</li>
 									<li class="positioning__controls-item">
 										<label class="controls__label">Y
 											<input type="text" data-inputPosition="Y" id="input-Y" class="controls__input">
 										</label>
-										<div class="controls__arrow_container"><a href="" class="controls__arrow controls__arrow-more">more</a><a href="" class="controls__arrow controls__arrow-less">less</a>
-										</div>
 									</li>
 								</ul>
 							</div>
 						</div>
 					</div>
 					<div class="opacity__wrapper devider">
-						<h3 class="info__text info__text-opacity">Прозрачность
-							<div id="slider" class="opacity__slider"></div>
+						<h3 class="info__text info__text-opacity">
+							<div class="lang-ru">Прозрачность</div>
+							<div class="lang-en">Transparency</div>
 						</h3>
-						<div class="opacity__button">
+						<div id="slider" class="opacity__slider"></div>
+						<div class="opacity__button lang-ru">
 							<input type="reset" value="Сброс" class="opacity__button-input opacity__button-input-res">
 							<button download="watermark.png" class="opacity__button-input opacity__button-input-load">Скачать</button>
+						</div>
+						<div class="opacity__button lang-en">
+							<input type="reset" value="Reset" class="opacity__button-input opacity__button-input-res">
+							<button download="watermark.png" class="opacity__button-input opacity__button-input-load">Download</button>
 						</div>
 					</div>
 				</aside>
@@ -108,7 +119,7 @@
 		</title>
 		<meta name="viewport" content="width=device-width">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,100,100italic,300italic,400italic,500italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" type="text/css" href="css/main.css" media="screen, projection, print">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="stylesheet" href="fonts/stylesheet.css">
 		<script src="/js/_vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 	</head>
@@ -125,49 +136,58 @@
 					</ul>
 					<div class="sidebar-social">
 						<ul class="sidebar-social__list">
-							<li class="social-item"><a data-type="fb" href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:3000/" target="_blank" class="social__icons-link fb">Facebook</a></li>
-							<li class="social-item"><a data-type="tw" href="https://twitter.com/intent/tweet?text=Hello%20world!%20http://127.0.0.1:3000/" target="_blank" class="social__icons-link tw">Twitter</a></li>
-							<li class="social-item"><a data-type="vk" href="http://vk.com/share.php?url=http://127.0.0.1:3000/" target="_blank" class="social__icons-link vk">Vk</a></li>
+							<li class="social-item"><a target="_blank" data-type="fb" href="https://facebook.com/sharer/sharer.php?u=http://127.0.0.1:3000/" class="social__icons-link fb"></a></li>
+							<li class="social-item"><a target="_blank" data-type="tw" href="https://twitter.com/intent/tweet?text=Hello%20world!%20http://127.0.0.1:3000/" class="social__icons-link tw"></a></li>
+							<li class="social-item"><a target="_blank" data-type="vk" href="https://vk.com/share.php?url=http://127.0.0.1:3000/" class="social__icons-link vk"></a></li>
 						</ul>
 						<div class="sidebar-social__like"></div>
 					</div>
 				</aside>
 				<div class="container">
 					<section class="section-page">
-						<h1 class="section__title">Генератор водяных знаков</h1>
+						<h1 class="section__title lang-ru">Генератор водяных знаков</h1>
+						<h1 class="section__title lang-en">Watermarks generator</h1>
 						<div class="container__img">
 							<div class="img__wrapp">
-								<div class="img__main"><img src="img/main-img_03.jpg" class="img__main-uploaded"></div><img src="img/watermark_03.png" class="img__watermark-uploaded">
+								<div class="img__main"><img src="img/main-img_03.jpg" class="img__main-uploaded"><img src="img/watermark_03.png" id="draggable" class="ui-widget-content img__watermark-uploaded"></div>
 							</div>
 						</div>
 					</section>
 					<aside class="aside-page">
-						<h2 class="aside__title">Настройки</h2>
+						<h2 class="aside__title lang-ru">Настройки</h2>
+						<h2 class="aside__title lang-en">Settings</h2>
 						<div class="formwrapper devider">
 							<form id="add-new-project" role="form" class="form">
 								<div class="form__group">
 									<div class="form__group-wrapper">
-										<div class="info__text">Исходное изображение</div>
+										<div class="info__text lang-ru">Исходное изображение</div>
+										<div class="info__text lang-en">Original image</div>
 										<label class="label__fileupload">
-											<input id="fileupload" type="file" name="files[]" class="fileupload">
+											<input id="fileuploadFirst" type="file" name="files[]" data-url="server/php/" class="fileupload">
 											<input id="fileurl" type="hidden" class="fileurl">
 										</label>
-										<input id="filename" name="filename" placeholder="Image.jpg" class="input">
+										<input id="filenameFirst" name="filename" placeholder="Image.jpg" class="input">
 									</div>
 									<div class="form__group-wrapper">
-										<div class="info__text">Водяной знак</div>
+										<div class="info__text lang-ru">Водяной знак</div>
+										<div class="info__text lang-en">Watermark</div>
 										<label class="label__fileupload">
-											<input id="fileupload" type="file" name="files[]" class="fileupload">
+											<input id="fileuploadSecond" type="file" name="files[]" data-url="server/php/" disabled class="fileupload">
 											<input id="fileurl" type="hidden" class="fileurl">
 										</label>
-										<input id="filename" name="filename" placeholder="Image.jpg" class="input">
+										<input id="filenameSecond" name="filename" placeholder="Image.jpg" class="input">
 									</div>
 								</div>
 							</form>
 						</div>
 						<div class="aside__positioning_wrap devider">
 							<div class="aside__positioning">
-								<h3 class="info__text">Положение</h3>
+								<h3 class="info__text lang-ru">Положение</h3>
+								<h3 class="info__text lang-en">Place</h3>
+								<ul class="position__form-list">
+									<li class="positio__form-item"><a class="postion__form-link postion__form-tileoff"></a></li>
+									<li class="positio__form-item"><a class="postion__form-link postion__form-oneoff"></a></li>
+								</ul>
 								<div class="positioning_container">
 									<table class="positioning__table">
 										<tr class="table__row">
@@ -191,27 +211,29 @@
 											<label class="controls__label">X
 												<input type="text" data-inputPosition="X" id="input-X" class="controls__input">
 											</label>
-											<div class="controls__arrow_container"><a href="" class="controls__arrow controls__arrow-more">more</a><a href="" class="controls__arrow controls__arrow-less">less</a>
-											</div>
 										</li>
 										<li class="positioning__controls-item">
 											<label class="controls__label">Y
 												<input type="text" data-inputPosition="Y" id="input-Y" class="controls__input">
 											</label>
-											<div class="controls__arrow_container"><a href="" class="controls__arrow controls__arrow-more">more</a><a href="" class="controls__arrow controls__arrow-less">less</a>
-											</div>
 										</li>
 									</ul>
 								</div>
 							</div>
 						</div>
 						<div class="opacity__wrapper devider">
-							<h3 class="info__text info__text-opacity">Прозрачность
-								<div id="slider" class="opacity__slider"></div>
+							<h3 class="info__text info__text-opacity">
+								<div class="lang-ru">Прозрачность</div>
+								<div class="lang-en">Transparency</div>
 							</h3>
-							<div class="opacity__button">
+							<div id="slider" class="opacity__slider"></div>
+							<div class="opacity__button lang-ru">
 								<input type="reset" value="Сброс" class="opacity__button-input opacity__button-input-res">
 								<button download="watermark.png" class="opacity__button-input opacity__button-input-load">Скачать</button>
+							</div>
+							<div class="opacity__button lang-en">
+								<input type="reset" value="Reset" class="opacity__button-input opacity__button-input-res">
+								<button download="watermark.png" class="opacity__button-input opacity__button-input-load">Download</button>
 							</div>
 						</div>
 					</aside>
@@ -220,7 +242,8 @@
 		</div>
 	</body>
 	<footer class="footer">
-		<p class="footer__text">&copy; 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его
+		<p class="footer__text lang-ru">&copy; 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его</p>
+		<p class="footer__text lang-en">&copy; 2014 This is my website, please do not copy or steal it
 			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 			<script>
 				window.jQuery || document.write('<script src="/js/_vendors/jquery-1.11.3.min.js"><\/script>');
@@ -228,9 +251,14 @@
 			</script>
 			<script src="js/plugins.min.js"></script>
 			<script src="js/main.min.js"></script>
+			<script src="- dev/scripts/addimage.js"></script>
 			<script src="js/base64.js"></script>
 			<script src="js/canvas2image.js"></script>
 			<script src="js/html2canvas.js"></script>
+			<script src="- dev/scripts/uploadfile.js"></script>
+			<script src="- dev/scripts/_plugins/jquery.ui.widget.js"></script>
+			<script src="- dev/scripts/_plugins/jquery.iframe-transport.js"></script>
+			<script src="- dev/scripts/_plugins/jquery.fileupload.js"></script>
 		</p>
 	</footer>
 </html>
