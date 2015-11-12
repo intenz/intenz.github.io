@@ -1,0 +1,40 @@
+extends ../main
+
+block title
+	| Генератор водяных знаков
+
+	block sidebar
+		aside.sidebar
+			ul.sidebar-lang
+				- var lang = ['РУС', 'ENG']
+				- var langclas = ['rus', 'eng']
+				- for (var i = 0; i < 2; ++i) {
+					li(class="sidebar-lang__"+ langclas[i])
+						a(href="#" class="sidebar-lang__link") #{lang[i]}
+				- }
+			.sidebar-social
+				ul.sidebar-social__list
+					- var links = ['facebook.com/sharer/sharer.php?u=http://127.0.0.1:3000/', 'twitter.com/intent/tweet?text=Hello%20world!%20http://127.0.0.1:3000/', 'vk.com/share.php?url=http://127.0.0.1:3000/']
+					- var socials = ['fb', 'tw', 'vk']
+					- for (var i = 0; i < 3; ++i) {
+						li.social-item
+							a(target="_blank" data-type="" + socials[i] href="https://" + links[i] class="social__icons-link " + socials[i])
+					- }
+				.sidebar-social__like
+	block content
+		.container
+			section.section-page
+				h1.section__title.lang-ru Генератор водяных знаков
+				h1.section__title.lang-en Watermarks generator
+				.container__img
+					.img__wrapp
+						.img__main
+							img(src="").img__main-uploaded
+							img(src="" id="draggable").ui-widget-content.img__watermark-uploaded
+			aside.aside-page
+				h2.aside__title.lang-ru Настройки
+				h2.aside__title.lang-en Settings
+				
+				include ../_common/_form
+				include ../_common/_positioning
+				include ../_common/_opacity
