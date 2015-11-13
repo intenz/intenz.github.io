@@ -1,0 +1,23 @@
+.aside__positioning_wrap.devider
+	.aside__positioning
+		h3.info__text.lang-ru Положение
+		h3.info__text.lang-en Place
+		ul.position__form-list
+			-var nameclas = ['tileoff','oneoff']
+			-for (var i = 0; i < 2; ++i) {
+					li(class="positio__form-item")
+							a( class="postion__form-link postion__form-" + nameclas[i])
+			- }
+		.positioning_container
+			table.positioning__table
+				-var z = 1
+				-for (var x = 0; x < 3; x++)
+					tr.table__row
+						-for (var i = 0; i < 3; i++)
+							td.table__cell
+								a(href="" data-position="position-" + z++).table__link
+			ul.positioning__controls-list
+				each pos in ['X', 'Y']
+					li.positioning__controls-item
+						label.controls__label #{pos}
+							input(type="text" data-inputPosition=pos id="input-#{pos}").controls__input
